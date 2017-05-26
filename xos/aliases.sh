@@ -1,0 +1,10 @@
+#! /bin/bash
+alias xos-teardown="cd /opt/cord/build/platform-install; ansible-playbook -i inventory/rcord --extra-vars @../genconfig/config.yml teardown-playbook.yml"
+alias xos-cleanup-openstack="source ~/admin-openrc.sh; /opt/cord/build/platform-install/scripts/cleanup.sh"
+alias xos-build="cd /opt/cord/orchestration/xos; ansible-playbook -i inventory/rcord --extra-vars @../genconfig/config.yml build-images-playbook.yml"
+alias xos-deploy="cd /opt/cord/build/platform-install; ansible-playbook -i inventory/rcord --extra-vars @../genconfig/config.yml deploy-xos-playbook.yml"
+alias xos-launch="pushd /opt/cord/build/platform-install; ansible-playbook -i inventory/head-localhost --extra-vars @/opt/cord/build/genconfig/config.yml launch-xos-playbook.yml"
+alias xos-cleanup-images="docker rmi xosproject/xos-ui xosproject/xos xosproject/xos-ui:candidate xosproject/xos:candidate"
+alias xos-refresh-nodes="cd /opt/cord/build/platform-install; ansible-playbook -i /etc/maas/ansible/pod-inventory --extra-vars=@/opt/cord/build/genconfig/config.yml compute-node-refresh-playbook.yml"
+alias xos-test="cd /opt/cord/build/platform-install; ansible-playbook -i inventory/rcord --extra-vars @../genconfig/config.yml pod-test-playbook.yml"
+alias xossh="docker run -it -v /opt/cord_profile/im_cert_chain.pem:/usr/local/share/ca-certificates/local_certs.crt xosproject/xos-client -u xosadmin@opencord.org -p `cat /opt/cord/build/platform-install/credentials/xosadmin@opencord.org`"
