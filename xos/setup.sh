@@ -8,4 +8,4 @@ else
     git clone https://github.com/sbconsulting/misc.git scott-misc
 fi
 cd scott-misc/xos
-cp teardown.sh bringup.sh /opt/cord/build/platform-install/scripts/
+cp aliases.sh teardown.sh bringup.sh /opt/cord/build/platform-install/scripts/
