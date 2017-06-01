@@ -9,3 +9,5 @@ else
 fi
 cd scott-misc/xos
 cp aliases.sh teardown.sh bringup.sh /opt/cord/build/platform-install/scripts/
+source aliases.sh
+echo "source /opt/cord/build/platform-install/scripts/aliases.sh" >> ~/.bashrc
