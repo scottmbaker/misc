@@ -9,5 +9,7 @@ else
 fi
 cd scott-misc/xos
 cp aliases.sh teardown.sh bringup.sh /opt/cord/build/platform-install/scripts/
+sudo chmod a+r /opt/cord/build/platform-install/credentials/cord_keystone_admin
 source aliases.sh
 echo "source /opt/cord/build/platform-install/scripts/aliases.sh" >> ~/.bashrc
+cd /opt/cord/build/platform-install
