@@ -2,7 +2,7 @@
 set -e
 cd /opt/cord/build/platform-install
 ansible-playbook -i inventory/rcord --extra-vars @../genconfig/config.yml teardown-playbook.yml
-source ~/admin-openrc.sh
+source /opt/cord_profile/admin-openrc.sh
 /opt/cord/build/platform-install/scripts/cleanup.sh
 IMAGES=$(docker images | grep -i xosproject/xos | awk '{print $3 }')
 if [ ! -z "$IMAGES" ]; then
