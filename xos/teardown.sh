@@ -12,7 +12,7 @@ IMAGES=$(docker images | grep -i synchro | awk '{print $3 }')
 if [ ! -z "$IMAGES" ]; then
     docker rmi -f $IMAGES
 fi
-cd /opt/onos-cord
+cd /opt/onos_cord
 docker stop onoscord_xos-onos_1
 docker rm onoscord_xos-onos_1
 docker-compose up -d
