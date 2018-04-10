@@ -8,7 +8,8 @@ else
     git clone https://github.com/sbconsulting/misc.git scott-misc
 fi
 cd scott-misc/xos
-mkdir -p /opt/smbaker
+sudo mkdir -p /opt/smbaker
+sudo chown smbaker /opt/smbaker
 cp aliases.sh teardown.sh bringup.sh /opt/smbaker/
 source aliases.sh
 echo "source /opt/smbaker/aliases.sh" >> ~/.bashrc
