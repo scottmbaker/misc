@@ -12,6 +12,7 @@ done
 
 set -e
 cd ~/cord/build
+eval $(minikube docker-env)
 scripts/imagebuilder.py -f helm-charts/examples/filter-images.yaml
 cd helm-charts
 helm install xos-core -n xos-core -f examples/candidate-tag-values.yaml

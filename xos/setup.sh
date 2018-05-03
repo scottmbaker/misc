@@ -1,4 +1,5 @@
 #! /bin/bash
+pushd
 cd ~
 if [ -e scott-misc ]; then
     cd scott-misc
@@ -10,7 +11,7 @@ fi
 cd scott-misc/xos
 sudo mkdir -p /opt/smbaker
 sudo chown smbaker /opt/smbaker
-cp helm-cycle.sh aliases.sh teardown.sh bringup.sh /opt/smbaker/
+cp helm-wait.sh helm-cycle.sh aliases.sh teardown.sh bringup.sh /opt/smbaker/
 source aliases.sh
 echo "source /opt/smbaker/aliases.sh" >> ~/.bashrc
-
+popd
