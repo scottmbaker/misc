@@ -1,6 +1,5 @@
 #! /bin/bash
-pushd
-cd ~
+pushd ~
 if [ -e scott-misc ]; then
     cd scott-misc
     git pull
