@@ -1,5 +1,5 @@
 #! /bin/bash
-TOSCA_URL=`minikube service xos-gui --url`
+TOSCA_URL=`minikube service xos-tosca --url`
 ACCOUNT=admin@opencord.org
 PASSWORD=letmein
 RECIPE=$1
