@@ -10,6 +10,9 @@ while [ -n "$GET_PODS_RESULT" ]; do
    GET_PODS_RESULT=`kubectl get pods`
 done
 
+kubectl delete pods --all
+kubectl delete configmaps --all
+
 set -e
 cd ~/cord/build
 eval $(minikube docker-env)
