@@ -14,11 +14,6 @@ helm del --purge xossh
 kubectl delete pods --all
 kubectl delete configmaps --all
 
-GET_PODS_RESULT=`kubectl get pods`
-while [ -n "$GET_PODS_RESULT" ]; do
-   GET_PODS_RESULT=`kubectl get pods`
-done
-
 set -e
 cd ~/cord/build
 
@@ -28,7 +23,16 @@ if [[ "$docker_env" != "'none' driver does not support 'minikube docker-env' com
 fi
 
 scripts/imagebuilder.py -f helm-charts/examples/filter-images.yaml
+
+echo "Waiting for all pods to be deleted..."
+GET_PODS_RESULT=`kubectl get pods`
+while [ -n "$GET_PODS_RESULT" ]; do
+   GET_PODS_RESULT=`kubectl get pods`
+done
+echo "We are clear of pods"
+
 cd helm-charts
 helm install xos-core -n xos-core -f examples/candidate-tag-values.yaml
 helm dep update xos-profiles/$USE_PROFILE
+helm dep update xos-core
 helm install xos-profiles/$USE_PROFILE -n $USE_PROFILE -f examples/candidate-tag-values.yaml
