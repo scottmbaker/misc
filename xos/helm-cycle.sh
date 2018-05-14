@@ -31,7 +31,7 @@ while [ -n "$GET_PODS_RESULT" ]; do
 done
 echo "We are clear of pods"
 
-cd helm-charts
+cd ~/cord/helm-charts
 helm dep update xos-core
 helm install xos-core -n xos-core -f examples/candidate-tag-values.yaml
 helm dep update xos-profiles/$USE_PROFILE
