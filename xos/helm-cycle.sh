@@ -22,7 +22,7 @@ if [[ "$docker_env" != "'none' driver does not support 'minikube docker-env' com
   eval $docker_env
 fi
 
-scripts/imagebuilder.py -f helm-charts/examples/filter-images.yaml
+scripts/imagebuilder.py -f ~/cord/helm-charts/examples/filter-images.yaml
 
 echo "Waiting for all pods to be deleted..."
 GET_PODS_RESULT=`kubectl get pods`
