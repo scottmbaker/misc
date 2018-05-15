@@ -33,6 +33,6 @@ echo "We are clear of pods"
 
 cd ~/cord/helm-charts
 helm dep update xos-core
-helm install xos-core -n xos-core -f examples/candidate-tag-values.yaml
+helm install xos-core -n xos-core -f examples/candidate-tag-values.yaml -f examples/if-not-present-values.yaml
 helm dep update xos-profiles/$USE_PROFILE
-helm install xos-profiles/$USE_PROFILE -n $USE_PROFILE -f examples/candidate-tag-values.yaml
+helm install xos-profiles/$USE_PROFILE -n $USE_PROFILE -f examples/candidate-tag-values.yaml -f examples/if-not-present-values.yaml
