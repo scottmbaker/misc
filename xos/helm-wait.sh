@@ -1,4 +1,4 @@
 #!/bin/bash
-GUI_URL=`minikube service xos-gui --url`
-echo "GUI URL is", $GUI_URL
-python ~/cord/build/scripts/xos-wait-dynamicload.py 300 $GUI_URL vsg-hw volt fabric vrouter
+CHAM_URL=`minikube service xos-chameleon --url`
+echo "CHAM URL is", $CHAM_URL
+python ~/cord/build/scripts/xos-wait-dynamicload.py 300 $CHAM_URL vsg-hw volt fabric vrouter
