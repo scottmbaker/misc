@@ -4,12 +4,13 @@ USE_PROFILE=${PROFILE:-rcord-lite}
 
 echo "Profile is $USE_PROFILE"
 
-helm delete $USE_PROFILE
-helm delete xos-core
-helm delete xossh
+#helm delete $USE_PROFILE
+#helm delete xos-core
+#helm delete xossh
 helm del --purge $USE_PROFILE
 helm del --purge xos-core
 helm del --purge xossh
+helm del --purge cord-kafka
 
 kubectl delete pods --all
 kubectl delete configmaps --all
@@ -36,3 +37,6 @@ helm dep update xos-core
 helm install xos-core -n xos-core -f examples/candidate-tag-values.yaml -f examples/if-not-present-values.yaml
 helm dep update xos-profiles/$USE_PROFILE
 helm install xos-profiles/$USE_PROFILE -n $USE_PROFILE -f examples/candidate-tag-values.yaml -f examples/if-not-present-values.yaml
+
+helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
+helm install --name cord-kafka --set replicas=1 incubator/kafka
