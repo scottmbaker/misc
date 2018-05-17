@@ -34,9 +34,9 @@ scripts/imagebuilder.py -f ~/cord/helm-charts/examples/filter-images.yaml
 
 cd ~/cord/helm-charts
 helm dep update xos-core
-helm install xos-core -n xos-core -f examples/candidate-tag-values.yaml -f examples/if-not-present-values.yaml
+helm install xos-core -n xos-core -f examples/image-tag-candidate.yaml -f examples/imagePullPolicy-IfNotPresent.yaml
 helm dep update xos-profiles/$USE_PROFILE
-helm install xos-profiles/$USE_PROFILE -n $USE_PROFILE -f examples/candidate-tag-values.yaml -f examples/if-not-present-values.yaml
+helm install xos-profiles/$USE_PROFILE -n $USE_PROFILE -f examples/image-tag-candidate.yaml -f examples/imagePullPolicy-IfNotPresent.yaml
 
 helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
 helm install --name cord-kafka --set replicas=1 incubator/kafka
