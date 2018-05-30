@@ -23,9 +23,6 @@ while [ -n "$GET_PODS_RESULT" ]; do
 done
 echo "We are clear of pods"
 
-set -e
-cd ~/cord/build
-
 which minikube
 if [[ $? == 0 ]]; then 
     docker_env=`minikube docker-env`
@@ -33,6 +30,9 @@ if [[ $? == 0 ]]; then
       eval $docker_env
     fi
 fi
+
+set -e
+cd ~/cord/build
 
 scripts/imagebuilder.py -f ~/cord/helm-charts/examples/filter-images.yaml
 
