@@ -32,16 +32,12 @@ if [[ $? == 0 ]]; then
 fi
 
 groups | grep -i docker
-if [[ $? == 0 ]]; then
-   IN_DOCKER=1
-else
-   IN_DOCKER=0
-fi
+IN_DOCKER=$?
 
 set -e
 cd ~/cord/build
 
-if [[ $IN_DOCKER ]]; then
+if [[ $IN_DOCKER == 0  ]]; then
     scripts/imagebuilder.py -f ~/cord/helm-charts/examples/filter-images.yaml
 else
     sudo scripts/imagebuilder.py -f ~/cord/helm-charts/examples/filter-images.yaml
