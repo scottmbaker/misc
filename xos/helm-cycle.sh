@@ -46,7 +46,7 @@ fi
 cd ~/cord/helm-charts
 
 helm upgrade --install onos-cord ./onos
-~/openstack-helm/tools/deployment/common/wait-for-pods.sh default
+#~/openstack-helm/tools/deployment/common/wait-for-pods.sh default
 #ONOS_CORD_POD=$(kubectl get pods | grep onos-cord | awk '{print $1}')
 #kubectl cp ~/.ssh/id_rsa "$ONOS_CORD_POD":/root/node_key
 
