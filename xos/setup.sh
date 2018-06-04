@@ -10,7 +10,7 @@ fi
 cd scott-misc/xos
 sudo mkdir -p /opt/smbaker
 sudo chown smbaker /opt/smbaker
-cp repo-checkout-cord.sh rebuild-containers.sh helm-onos.sh helm-tosca.sh helm-wait.sh helm-cycle.sh aliases.sh teardown.sh bringup.sh /opt/smbaker/
+cp pull-prereqs.sh repo-checkout-cord.sh rebuild-containers.sh helm-onos.sh helm-tosca.sh helm-wait.sh helm-cycle.sh aliases.sh teardown.sh bringup.sh /opt/smbaker/
 source aliases.sh
 echo "source /opt/smbaker/aliases.sh" >> ~/.bashrc
 popd
