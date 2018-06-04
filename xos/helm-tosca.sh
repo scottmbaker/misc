@@ -1,5 +1,17 @@
 #! /bin/bash
-TOSCA_URL=`minikube service xos-tosca --url`
+set -e
+
+#TOSCA_URL=`minikube service xos-tosca --url`
+
+
+# NOTE: probably could have used localhost:30007...
+
+TOSCA_ADDR=`kubectl get services | grep -i xos-tosca | awk '{print $3}'`
+TOSCA_PORTMAP=`kubectl get services | grep -i xos-tosca | awk '{print $5}'`
+TOSCA_PORT=`echo $TOSCA_PORTMAP | cut -d ":" -f 1`
+TOSCA_URL="http://$TOSCA_ADDR:$TOSCA_PORT"
+
+
 ACCOUNT=admin@opencord.org
 PASSWORD=letmein
 RECIPE=$1
