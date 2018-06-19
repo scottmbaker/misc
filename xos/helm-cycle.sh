@@ -12,6 +12,8 @@ helm del --purge xos-core
 helm del --purge xossh
 helm del --purge cord-kafka
 helm del --purge onos-cord
+helm del --purge demo-exampleservice
+helm del --purge demo-simpleexampleservice
 
 kubectl delete pods --all
 kubectl delete configmaps --all
