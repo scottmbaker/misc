@@ -16,3 +16,5 @@ cd ~/cord/orchestration/xos_services/vtn-service
 sudo docker build -t xosproject/vtn-synchronizer:candidate -f Dockerfile.synchronizer .
 cd ~/cord/orchestration/xos_services/openstack
 sudo docker build -t xosproject/openstack-synchronizer:candidate -f Dockerfile.synchronizer .
+cd ~/cord/orchestration/xos_services/exampleservice
+sudo docker build -t xosproject/exampleservice-synchronizer:candidate -f Dockerfile.synchronizer .
