@@ -18,3 +18,5 @@ cd ~/cord/orchestration/xos_services/openstack
 sudo docker build -t xosproject/openstack-synchronizer:candidate -f Dockerfile.synchronizer .
 cd ~/cord/orchestration/xos_services/exampleservice
 sudo docker build -t xosproject/exampleservice-synchronizer:candidate -f Dockerfile.synchronizer .
+cd ~/cord/orchestration/xos_services/addressmanager
+sudo docker build -t xosproject/addressmanager-synchronizer:candidate -f Dockerfile.synchronizer .
