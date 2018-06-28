@@ -37,13 +37,15 @@ groups | grep -i docker
 IN_DOCKER=$?
 
 set -e
-cd ~/cord/build
 
-if [[ $IN_DOCKER == 0  ]]; then
-    scripts/imagebuilder.py -f ~/cord/helm-charts/examples/filter-images.yaml
-else
-    sudo scripts/imagebuilder.py -f ~/cord/helm-charts/examples/filter-images.yaml
-fi
+#cd ~/cord/automation-tools/developer
+#if [[ $IN_DOCKER == 0  ]]; then
+#    ./imagebuilder.py -f ~/cord/helm-charts/examples/filter-images.yaml
+#else
+#    sudo ./imagebuilder.py -f ~/cord/helm-charts/examples/filter-images.yaml
+#fi
+
+/opt/smbaker/rebuild-containers.sh
 
 cd ~/cord/helm-charts
 
