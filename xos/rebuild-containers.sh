@@ -22,7 +22,7 @@ cd ~/cord/orchestration/xos_services/addressmanager
 sudo docker build -t xosproject/addressmanager-synchronizer:candidate -f Dockerfile.synchronizer .
 # tosca-loader
 cd ~/cord/orchestration/xos-tosca/loader
-sudo docker build -t xosproject/tosca-loaderr:candidate -f Dockerfile.tosca-loader .    
+sudo docker build -t xosproject/tosca-loader:candidate -f Dockerfile.tosca-loader .    
 # rcord
 cd ~/cord/orchestration/xos_services/olt-service
 sudo docker build -t xosproject/volt-synchronizer:candidate -f Dockerfile.synchronizer .
