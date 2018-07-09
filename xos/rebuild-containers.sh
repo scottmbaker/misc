@@ -20,3 +20,19 @@ cd ~/cord/orchestration/xos_services/exampleservice
 sudo docker build -t xosproject/exampleservice-synchronizer:candidate -f Dockerfile.synchronizer .
 cd ~/cord/orchestration/xos_services/addressmanager
 sudo docker build -t xosproject/addressmanager-synchronizer:candidate -f Dockerfile.synchronizer .
+# tosca-loader
+cd ~/cord/orchestration/xos-tosca/loader
+sudo docker build -t xosproject/tosca-loaderr:candidate -f Dockerfile.tosca-loader .    
+# rcord
+cd ~/cord/orchestration/xos_services/olt-service
+sudo docker build -t xosproject/volt-synchronizer:candidate -f Dockerfile.synchronizer .
+cd ~/cord/orchestration/xos_services/fabric
+sudo docker build -t xosproject/fabric-synchronizer:candidate -f Dockerfile.synchronizer .
+cd ~/cord/orchestration/xos_services/vrouter
+sudo docker build -t xosproject/vrouter-synchronizer:candidate -f Dockerfile.synchronizer .
+cd ~/cord/orchestration/xos_services/vsg-hw
+sudo docker build -t xosproject/vsg-hw-synchronizer:candidate -f Dockerfile.synchronizer .
+cd ~/cord/orchestration/profiles/rcord
+sudo docker build -t xosproject/rcord-synchronizer:candidate -f Dockerfile.synchronizer .
+cd ~/cord/orchestration/xos_services/hippie-oss
+sudo docker build -t xosproject/hippie-oss-synchronizer:candidate -f Dockerfile.synchronizer .
