@@ -1,6 +1,6 @@
 #! /bin/bash
 pushd ~/cord/orchestration/xos
-sudo pip install plyxproto pattern astunparse pykwalify multistructlog nose2 mock networkx==1.11
+sudo pip install plyxproto pattern astunparse pykwalify multistructlog nose2 mock networkx==1.11 requests-mock
 cd ~/cord/orchestration/xos
 cd lib/xos-util
 sudo python ./setup.py install
