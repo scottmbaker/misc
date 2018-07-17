@@ -28,6 +28,8 @@ cd ~/cord/orchestration/xos_services/olt-service
 sudo docker build -t xosproject/volt-synchronizer:candidate -f Dockerfile.synchronizer .
 cd ~/cord/orchestration/xos_services/fabric
 sudo docker build -t xosproject/fabric-synchronizer:candidate -f Dockerfile.synchronizer .
+cd ~/cord/orchestration/xos_services/fabric-crossconnect
+sudo docker build -t xosproject/fabric-crossconnect-synchronizer:candidate -f Dockerfile.synchronizer .
 cd ~/cord/orchestration/xos_services/vrouter
 sudo docker build -t xosproject/vrouter-synchronizer:candidate -f Dockerfile.synchronizer .
 cd ~/cord/orchestration/xos_services/vsg-hw
