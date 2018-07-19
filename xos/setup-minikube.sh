@@ -2,6 +2,13 @@
 
 set -e
 
+if [ -d /usr/local/etc/emulab ]; then
+if [ ! -d /mnt/extra ]; then
+echo make sure to setup extra space first
+return
+fi
+fi
+
 USER=$( whoami )
 
 sudo apt update
