@@ -23,7 +23,7 @@ sudo docker build -t xosproject/simpleexampleservice-synchronizer:candidate -f D
 cd ~/cord/orchestration/xos_services/addressmanager
 sudo docker build -t xosproject/addressmanager-synchronizer:candidate -f Dockerfile.synchronizer .
 cd ~/cord/orchestration/xos_services/kubernetes-service
-sudo docker build -t xosproject/kubernetes-service-synchronizer:candidate -f Dockerfile.synchronizer .
+sudo docker build -t xosproject/kubernetes-synchronizer:candidate -f Dockerfile.synchronizer .
 # tosca-loader
 cd ~/cord/orchestration/xos-tosca/loader
 sudo docker build -t xosproject/tosca-loader:candidate -f Dockerfile.tosca-loader .    
