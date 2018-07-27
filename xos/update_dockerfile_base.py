@@ -3,6 +3,8 @@
 import os
 
 BASE_DIR=os.path.expanduser("~/cord/orchestration/xos_services")
+PROFILES_DIR=os.path.expanduser("~/cord/orchestration/profiles")
+XOS_DIR=os.path.expanduser("~/cord/orchestration/xos")
 
 def patch_dockerfile(fn):
     lines = open(fn).readlines()
@@ -30,3 +32,8 @@ for service_fn in os.listdir(BASE_DIR):
     if not os.path.exists(dockerfile_fn):
         continue
     patch_dockerfile(dockerfile_fn)
+
+patch_dockerfile(os.path.join(PROFILES_DIR, "rcord", "Dockerfile.synchronizer"))
+patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.libraries"))
+patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.synchronizer-base"))
+patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.client"))
