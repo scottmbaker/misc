@@ -9,5 +9,5 @@ sudo python ./setup.py install
 cd ../xos-config
 sudo python ./setup.py install
 cd ../..
-nose2 --verbose --exclude-ignored-files
+nose2 --verbose
 popd
