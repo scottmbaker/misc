@@ -12,6 +12,7 @@ helm del --purge xos-core
 helm del --purge xossh
 helm del --purge cord-kafka
 helm del --purge onos-cord
+helm del --purge onos-fabric
 helm del --purge demo-exampleservice
 helm del --purge demo-simpleexampleservice
 
@@ -49,10 +50,7 @@ set -e
 
 cd ~/cord/helm-charts
 
-helm upgrade --install onos-cord ./onos
-#~/openstack-helm/tools/deployment/common/wait-for-pods.sh default
-#ONOS_CORD_POD=$(kubectl get pods | grep onos-cord | awk '{print $1}')
-#kubectl cp ~/.ssh/id_rsa "$ONOS_CORD_POD":/root/node_key
+helm install -n onos-fabric -f configs/onos-fabric.yaml onos --set xos_service=ONOS_Fabric
 
 helm dep update xos-core
 helm install xos-core -n xos-core \
