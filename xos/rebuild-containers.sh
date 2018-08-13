@@ -42,3 +42,5 @@ cd ~/cord/orchestration/profiles/rcord
 sudo docker build -t xosproject/rcord-synchronizer:candidate -f Dockerfile.synchronizer .
 cd ~/cord/orchestration/xos_services/hippie-oss
 sudo docker build -t xosproject/hippie-oss-synchronizer:candidate -f Dockerfile.synchronizer .
+cd ~/cord/orchestration/xos_services/att-workflow-driver-synchronizer
+sudo docker build -t xosproject/att-workflow-driver-synchronizer:candidate -f Dockerfile.synchronizer .

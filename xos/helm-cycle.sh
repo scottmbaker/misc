@@ -4,10 +4,10 @@ USE_PROFILE=${PROFILE:-rcord-lite}
 
 echo "Profile is $USE_PROFILE"
 
-#helm delete $USE_PROFILE
-#helm delete xos-core
-#helm delete xossh
-helm del --purge $USE_PROFILE
+for THIS_PROFILE in $(echo $USE_PROFILE | sed "s/,/ /g"); do
+  helm del --purge $THIS_PROFILE
+done
+
 helm del --purge xos-core
 helm del --purge xossh
 helm del --purge cord-kafka
@@ -57,11 +57,14 @@ helm upgrade --install onos-cord ./onos
 helm dep update xos-core
 helm install xos-core -n xos-core \
      -f examples/image-tag-candidate.yaml -f examples/imagePullPolicy-IfNotPresent.yaml
-helm dep update xos-profiles/$USE_PROFILE
-helm install xos-profiles/$USE_PROFILE -n $USE_PROFILE \
-     --set computeNodes.master.name="$( hostname )" \
-     --set vtn-service.sshUser="$( whoami )" \
-     -f examples/image-tag-candidate.yaml -f examples/imagePullPolicy-IfNotPresent.yaml
 
+for THIS_PROFILE in $(echo $USE_PROFILE | sed "s/,/ /g"); do    
+  helm dep update xos-profiles/$THIS_PROFILE
+  helm install xos-profiles/$THIS_PROFILE -n $THIS_PROFILE \
+       --set computeNodes.master.name="$( hostname )" \
+       --set vtn-service.sshUser="$( whoami )" \
+       -f examples/image-tag-candidate.yaml -f examples/imagePullPolicy-IfNotPresent.yaml
+done
+  
 helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
 helm install --name cord-kafka --set replicas=1 incubator/kafka

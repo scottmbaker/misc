@@ -10,7 +10,7 @@ def patch_dockerfile(fn):
     lines = open(fn).readlines()
     new_lines=[]
     for line in lines:
-        if line.startswith("FROM xosproject/xos-synchronizer-base:"):
+        if line.startswith("FROM xosproject/xos-"):
             (firstpart, version) = line.strip().split(":",1)
             if (version != "candidate"):
                 old_line = line
