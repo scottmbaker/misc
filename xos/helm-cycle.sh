@@ -11,9 +11,7 @@ done
 helm del --purge xos-core
 helm del --purge xossh
 helm del --purge cord-kafka
-helm del --purge onos-cord
-helm del --purge onos-fabric
-helm del --purge onos-voltha
+helm del --purge onos
 helm del --purge demo-exampleservice
 helm del --purge demo-simpleexampleservice
 
@@ -51,8 +49,10 @@ set -e
 
 cd ~/cord/helm-charts
 
-helm install -n onos-fabric -f configs/onos-fabric.yaml onos
-helm install -n onos-voltha -f configs/onos-voltha.yaml onos
+#helm install -n onos-fabric -f configs/onos-fabric.yaml onos
+#helm install -n onos-voltha -f configs/onos-voltha.yaml onos
+
+helm install -n onos -f configs/onos.yaml onos
 
 helm dep update xos-core
 helm install xos-core -n xos-core \
