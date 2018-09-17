@@ -67,4 +67,4 @@ for THIS_PROFILE in $(echo $USE_PROFILE | sed "s/,/ /g"); do
 done
   
 helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
-helm install --name cord-kafka --set replicas=1 incubator/kafka
+helm install -f examples/kafka-single.yaml --version 0.8.8 -n cord-kafka incubator/kafka
