@@ -9,6 +9,7 @@ set -e
 TOSCA_ADDR=`kubectl get services | grep -i xos-tosca | awk '{print $3}'`
 TOSCA_PORTMAP=`kubectl get services | grep -i xos-tosca | awk '{print $5}'`
 TOSCA_PORT=`echo $TOSCA_PORTMAP | cut -d ":" -f 1`
+TOSCA_PUBLIC_PORT=`echo $TOSCA_PORTMAP | cut -d ":" -f 2 | cut -d "/" -f 1`
 TOSCA_URL="http://$TOSCA_ADDR:$TOSCA_PORT"
 
 
