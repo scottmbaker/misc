@@ -6,6 +6,7 @@ CORD_DIR=os.path.expanduser("~/projects/opencord")
 BASE_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos_services")
 PROFILES_DIR=os.path.expanduser(CORD_DIR + "/orchestration/profiles")
 XOS_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos")
+TOSCA_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos-tosca")
 
 def patch_dockerfile(fn):
     lines = open(fn).readlines()
@@ -39,3 +40,4 @@ patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.librarie
 patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.synchronizer-base"))
 patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.client"))
 patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.xos-core"))
+patch_dockerfile(os.path.join(TOSCA_DIR, "Dockerfile"))
