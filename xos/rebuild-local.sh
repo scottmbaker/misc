@@ -89,3 +89,11 @@ if [[ $CONTAINERS == *"att-workflow-driver-synchronizer"* ]]; then
   cd $CORD_BASE/orchestration/xos_services/att-workflow-driver
   sudo docker build -t xosproject/att-workflow-driver-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
+if [[ $CONTAINERS == *"progran-synchronizer"* ]]; then
+    cd $CORD_BASE/orchestration/xos_services/progran
+    sudo docker build -t xosproject/progran-synchronizer:candidate -f Dockerfile.synchronizer .
+fi
+if [[ $CONTAINERS == *"mcord-synchronizer"* ]]; then
+    cd $CORD_BASE/orchestration/profiles/mcord
+    sudo docker build -t xosproject/mcord-synchronizer:candidate -f Dockerfile.synchronizer .
+fi
