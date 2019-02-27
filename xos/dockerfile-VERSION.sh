@@ -26,7 +26,7 @@
 
 set -eu -o pipefail
 
-WORKSPACE=${WORKSPACE:-../..}
+WORKSPACE=${CORD_DIR:-../..}
 
 XOS_MAJOR=$(cut -b 1 "${WORKSPACE}/orchestration/xos/VERSION")
 
