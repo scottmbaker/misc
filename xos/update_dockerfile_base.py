@@ -2,9 +2,10 @@
 
 import os
 
-BASE_DIR=os.path.expanduser("~/cord/orchestration/xos_services")
-PROFILES_DIR=os.path.expanduser("~/cord/orchestration/profiles")
-XOS_DIR=os.path.expanduser("~/cord/orchestration/xos")
+CORD_DIR=os.path.expanduser("~/cord")
+BASE_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos_services")
+XOS_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos")
+TOSCA_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos-tosca")
 
 def patch_dockerfile(fn):
     lines = open(fn).readlines()
@@ -33,8 +34,9 @@ for service_fn in os.listdir(BASE_DIR):
         continue
     patch_dockerfile(dockerfile_fn)
 
-patch_dockerfile(os.path.join(PROFILES_DIR, "rcord", "Dockerfile.synchronizer"))
+#patch_dockerfile(os.path.join(PROFILES_DIR, "rcord", "Dockerfile.synchronizer"))
 patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.libraries"))
 patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.synchronizer-base"))
 patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.client"))
 patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.xos-core"))
+patch_dockerfile(os.path.join(TOSCA_DIR, "Dockerfile"))

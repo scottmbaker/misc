@@ -78,7 +78,7 @@ if [[ $CONTAINERS == *"vsg-hw-synchronized"* ]]; then
   sudo docker build -t xosproject/vsg-hw-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"rcord-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/profiles/rcord
+  cd $CORD_BASE/orchestration/xos_services/rcord
   sudo docker build -t xosproject/rcord-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"hippie-oss-synchronized"* ]]; then

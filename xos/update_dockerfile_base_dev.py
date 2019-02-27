@@ -4,7 +4,7 @@ import os
 
 CORD_DIR=os.path.expanduser("~/projects/opencord")
 BASE_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos_services")
-PROFILES_DIR=os.path.expanduser(CORD_DIR + "/orchestration/profiles")
+#PROFILES_DIR=os.path.expanduser(CORD_DIR + "/orchestration/profiles")
 XOS_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos")
 TOSCA_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos-tosca")
 
@@ -35,7 +35,7 @@ for service_fn in os.listdir(BASE_DIR):
         continue
     patch_dockerfile(dockerfile_fn)
 
-patch_dockerfile(os.path.join(PROFILES_DIR, "rcord", "Dockerfile.synchronizer"))
+#patch_dockerfile(os.path.join(PROFILES_DIR, "rcord", "Dockerfile.synchronizer"))
 patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.libraries"))
 patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.synchronizer-base"))
 patch_dockerfile(os.path.join(XOS_DIR, "containers", "xos", "Dockerfile.client"))
