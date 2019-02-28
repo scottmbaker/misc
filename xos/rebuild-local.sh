@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-ALL_CONTAINERS="xos-libraries xos-client xos-synchronizer-base xos-core chameleon xos-tosca onos-synchronizer vtn-synchronizer openstack-synchronizer exampleservice-synchronizer addressmanager-synchronizer kubernetes-synchronizer tosca-loader volt-synchronizer fabric-synchronizer fabric-crossconnect-synchronizer vrouter-synchronizer vsg-hw-synchronized rcord-synchronizer hippie-oss-synchronizer att-workflow-driver-synchronizer"
+ALL_CONTAINERS="xos-libraries xos-client xos-synchronizer-base xos-core chameleon xos-tosca onos-synchronizer vtn-synchronizer openstack-synchronizer exampleservice-synchronizer addressmanager-synchronizer kubernetes-synchronizer tosca-loader volt-synchronizer fabric-synchronizer fabric-crossconnect-synchronizer vrouter-synchronizer vsg-hw-synchronized rcord-synchronizer hippie-oss-synchronizer att-workflow-driver-synchronizer simpleexampleservice-synchronizer"
 CONTAINERS=${1:-$ALL_CONTAINERS}
 CORD_BASE=${CORD_DIR:-~/projects/opencord}
 cd $CORD_BASE/orchestration/xos
