@@ -3,7 +3,7 @@
 import os
 
 CORD_DIR=os.path.expanduser(os.environ.get("CORD_DIR", "~/projects/opencord"))  
-BASE_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos_services")
+BASE_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos-services")
 XOS_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos")
 TOSCA_DIR=os.path.expanduser(CORD_DIR + "/orchestration/xos-tosca")
 

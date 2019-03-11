@@ -6,7 +6,7 @@ helm dep update xos-profiles/demo-simpleexampleservice
 helm install xos-profiles/demo-simpleexampleservice -n demo-simpleexampleservice \
      -f examples/image-tag-candidate.yaml -f examples/imagePullPolicy-IfNotPresent.yaml
 
-SIMPLEEXAMPLESERVICE_PATH=~/cord/orchestration/xos_services/simpleexampleservice
+SIMPLEEXAMPLESERVICE_PATH=~/cord/orchestration/xos-services/simpleexampleservice
 USERNAME=admin@opencord.org
 PASSWORD=letmein
 TOSCA_URL=http://$( hostname ):30007

@@ -1,4 +1,4 @@
-pushd ~/cord/orchestration/xos_services/progran
+pushd ~/cord/orchestration/xos-services/progran
 sudo docker build -t xosproject/progran-synchronizer:candidate -f Dockerfile.synchronizer .
 cd ../vspgwc
 sudo docker build -t xosproject/vspgwc-synchronizer:candidate -f Dockerfile.synchronizer .

@@ -3,6 +3,7 @@ set -e
 ALL_CONTAINERS="xos-libraries xos-client xos-synchronizer-base xos-core chameleon xos-tosca onos-synchronizer vtn-synchronizer openstack-synchronizer exampleservice-synchronizer addressmanager-synchronizer kubernetes-synchronizer tosca-loader volt-synchronizer fabric-synchronizer fabric-crossconnect-synchronizer vrouter-synchronizer vsg-hw-synchronized rcord-synchronizer hippie-oss-synchronizer att-workflow-driver-synchronizer simpleexampleservice-synchronizer"
 CONTAINERS=${1:-$ALL_CONTAINERS}
 CORD_BASE=${CORD_DIR:-~/projects/opencord}
+SERVICES_BASE=$CORD_BASE/orchestration/xos-services
 cd $CORD_BASE/orchestration/xos
 if [[ $CONTAINERS == *"chameleon"* ]]; then
   echo "Building Chameleon"
@@ -24,31 +25,31 @@ if [[ $CONTAINERS == *"xos-tosca"* ]]; then
   sudo docker build -t xosproject/xos-tosca:candidate -f Dockerfile .
 fi
 if [[ $CONTAINERS == *"onos-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/onos-service
+  cd $SERVICES_BASE/onos-service
   sudo docker build -t xosproject/onos-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"vtn-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/vtn-service
+  cd $SERVICES_BASE/vtn-service
   sudo docker build -t xosproject/vtn-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"openstack-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/openstack
+  cd $SERVICES_BASE/openstack
   sudo docker build -t xosproject/openstack-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"exampleservice-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/exampleservice
+  cd $SERVICES_BASE/exampleservice
   sudo docker build -t xosproject/exampleservice-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"simpleexampleservice-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/simpleexampleservice
+  cd $SERVICES_BASE/simpleexampleservice
   sudo docker build -t xosproject/simpleexampleservice-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"addressmanager-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/addressmanager
+  cd $SERVICES_BASE/addressmanager
   sudo docker build -t xosproject/addressmanager-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"kubernetes-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/kubernetes-service
+  cd $SERVICES_BASE/kubernetes-service
   sudo docker build -t xosproject/kubernetes-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"tosca-loader"* ]]; then
@@ -58,39 +59,39 @@ if [[ $CONTAINERS == *"tosca-loader"* ]]; then
 fi
 if [[ $CONTAINERS == *"volt-synchronizer"* ]]; then
   # rcord
-  cd $CORD_BASE/orchestration/xos_services/olt-service
+  cd $SERVICES_BASE/olt-service
   sudo docker build -t xosproject/volt-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"fabric-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/fabric
+  cd $SERVICES_BASE/fabric
   sudo docker build -t xosproject/fabric-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"fabric-crossconnect-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/fabric-crossconnect
+  cd $SERVICES_BASE/fabric-crossconnect
   sudo docker build -t xosproject/fabric-crossconnect-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"vrouter-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/vrouter
+  cd $SERVICES_BASE/vrouter
   sudo docker build -t xosproject/vrouter-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"vsg-hw-synchronized"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/vsg-hw
+  cd $SERVICES_BASE/vsg-hw
   sudo docker build -t xosproject/vsg-hw-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"rcord-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/rcord
+  cd $SERVICES_BASE/rcord
   sudo docker build -t xosproject/rcord-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"hippie-oss-synchronized"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/hippie-oss
+  cd $SERVICES_BASE/hippie-oss
   sudo docker build -t xosproject/hippie-oss-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"att-workflow-driver-synchronizer"* ]]; then
-  cd $CORD_BASE/orchestration/xos_services/att-workflow-driver
+  cd $SERVICES_BASE/att-workflow-driver
   sudo docker build -t xosproject/att-workflow-driver-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"progran-synchronizer"* ]]; then
-    cd $CORD_BASE/orchestration/xos_services/progran
+    cd $SERVICES_BASE/progran
     sudo docker build -t xosproject/progran-synchronizer:candidate -f Dockerfile.synchronizer .
 fi
 if [[ $CONTAINERS == *"mcord-synchronizer"* ]]; then
