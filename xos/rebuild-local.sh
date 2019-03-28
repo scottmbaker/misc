@@ -1,15 +1,15 @@
 #!/bin/bash
 set -e
-ALL_CONTAINERS="xos-libraries xos-client xos-synchronizer-base xos-core chameleon xos-tosca onos-synchronizer vtn-synchronizer openstack-synchronizer exampleservice-synchronizer addressmanager-synchronizer kubernetes-synchronizer tosca-loader volt-synchronizer fabric-synchronizer fabric-crossconnect-synchronizer vrouter-synchronizer vsg-hw-synchronized rcord-synchronizer hippie-oss-synchronizer att-workflow-driver-synchronizer simpleexampleservice-synchronizer"
+ALL_CONTAINERS="xos-libraries xos-client xos-synchronizer-base xos-core xos-libraries xos-tosca onos-synchronizer vtn-synchronizer openstack-synchronizer exampleservice-synchronizer addressmanager-synchronizer kubernetes-synchronizer tosca-loader volt-synchronizer fabric-synchronizer fabric-crossconnect-synchronizer vrouter-synchronizer vsg-hw-synchronized rcord-synchronizer hippie-oss-synchronizer att-workflow-driver-synchronizer simpleexampleservice-synchronizer"
 CONTAINERS=${1:-$ALL_CONTAINERS}
 CORD_BASE=${CORD_DIR:-~/projects/opencord}
 SERVICES_BASE=$CORD_BASE/orchestration/xos-services
 cd $CORD_BASE/orchestration/xos
-if [[ $CONTAINERS == *"chameleon"* ]]; then
-  echo "Building Chameleon"
+if [[ $CONTAINERS == *"xos-libraries"* ]]; then
+  echo "Building Libraries"
   sudo docker build -t xosproject/xos-libraries:candidate -f containers/xos/Dockerfile.libraries .
-  rm -rf containers/xos/tmp.chameleon
-  cp -a $CORD_BASE/component/chameleon containers/xos/tmp.chameleon
+#  rm -rf containers/xos/tmp.chameleon
+#  cp -a $CORD_BASE/component/chameleon containers/xos/tmp.chameleon
 fi
 if [[ $CONTAINERS == *"xos-client"* ]]; then
   sudo docker build -t xosproject/xos-client:candidate -f containers/xos/Dockerfile.client .
