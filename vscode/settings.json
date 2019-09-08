@@ -1,0 +1,18 @@
+{
+    "python.pythonPath": "C:\\Python27\\python.exe",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "workbench.colorTheme": "Visual Studio Light",
+    "window.zoomLevel": 0,
+    "macros": {
+        "select-all-copy": [
+            "editor.action.selectAll",
+            "editor.action.clipboardCopyAction"
+        ]
+    },
+    "go.formatTool": "gofmt",
+    "go.lintOnSave": "off",
+    "go.vetOnSave": "off",
+    "go.buildOnSave": "off"
+}
