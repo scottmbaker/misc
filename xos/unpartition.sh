@@ -9,4 +9,5 @@ DEST_CONTAINER=`kubectl -n voltha get pods | grep -i $DEST_CONTAINER | awk '{pri
 echo "src: $SRC_CONTAINER ip: $SRC_IP"
 echo "dest: $DEST_CONTAINER"
 
-kubectl -n voltha exec -it $DEST_CONTAINER -- sh -c "iptables -D INPUT \`iptables -L INPUT --line-number | grep partition-$SRC_CONTAINER | head | awk '{print \$1}'\`"
+kubectl -n voltha exec -it $DEST_CONTAINER -- sh -c "iptables -D INPUT \`iptables -L INPUT --line-number | grep src-partition-$SRC_CONTAINER | head | awk '{print \$1}'\`"
+kubectl -n voltha exec -it $DEST_CONTAINER -- sh -c "iptables -D OUTPUT \`iptables -L OUTPUT --line-number | grep dest-partition-$SRC_CONTAINER | head | awk '{print \$1}'\`"
