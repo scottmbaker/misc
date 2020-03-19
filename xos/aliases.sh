@@ -14,6 +14,7 @@ alias dockerfile-candidates="python /opt/smbaker/dockerfile-candidates.py"
 alias dockerfile-VERSION="bash /opt/smbaker/dockerfile-VERSION.sh"
 alias rebuild-local="bash /opt/smbaker/rebuild-local.sh"
 alias push-candidates="bash /opt/smbaker/push-candidates.sh"
+alias upkube="source /opt/smbaker/upkube.sh"
 
 dosfix() {
     echo fixing $1
