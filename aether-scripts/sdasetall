@@ -1,0 +1,6 @@
+#!/bin/bash
+gnmisetsda set.apn-profile.gnmi
+gnmisetsda set.up-profile.gnmi
+gnmisetsda set.qos-profile.gnmi
+gnmisetsda set.access-profile.gnmi
+gnmisetsda set.subscriber.gnmi

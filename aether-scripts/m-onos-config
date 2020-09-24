@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+pushd /home/smbaker/projects/aether/onos-config
+export ONOS_CONFIG_VERSION=smbaker
+export KIND_CLUSTER_NAME=voltha-minimal
+make images
+make kind-only
+popd

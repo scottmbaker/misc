@@ -1,0 +1,13 @@
+#!/bin/bash
+POD=$(kubectl -n micro-onos get pods -l type=cli -o name)
+FN=$1
+if [ ! -f "$FN" ]; then
+    echo "$FN does not exist. Trying $AETHER_GNMI/$FN"
+    FN=$AETHER_GNMI/$FN
+fi
+if [ ! -f "$FN" ]; then
+    echo "$FN does not exist"
+    exit
+fi
+STUFF=`cat $FN`
+kubectl -n micro-onos exec -it $POD -- gnmi_cli -get -address sdcore-adapter-1:11161 -tlsDisabled -timeout 5s -en JSON  -alsologtostderr -insecure -client_crt /etc/ssl/certs/client1.crt -client_key /etc/ssl/certs/client1.key -ca_crt /etc/ssl/certs/onfca.crt -proto " $STUFF"

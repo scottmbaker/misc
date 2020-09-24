@@ -1,0 +1,4 @@
+#!/bin/bash
+POD=$(kubectl -n micro-onos get pods -l type=config -o name)
+echo $POD
+kubectl -n micro-onos delete $POD

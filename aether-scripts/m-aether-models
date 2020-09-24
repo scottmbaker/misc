@@ -1,0 +1,6 @@
+#!/bin/bash
+export ONOS_CONFIG_VERSION=smbaker
+export KIND_CLUSTER_NAME=voltha-minimal
+pushd /home/smbaker/projects/aether/config-models
+make aether-models && make images && make kind-only
+popd

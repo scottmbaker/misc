@@ -1,0 +1,4 @@
+#!/bin/bash
+POD=$(kubectl -n micro-onos get pods -o name | grep -i sdcore-adapter)
+echo $POD
+kubectl -n micro-onos delete $POD
