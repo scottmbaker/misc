@@ -1,3 +1,3 @@
 #!/bin/bash
-POD=$(kubectl -n micro-onos get pods -l type=config -o name)
+POD=$(kubectl -n micro-onos get pods -l type=config --field-selector status.phase=Running -o name)
 kubectl -n micro-onos logs $@ $POD onos-config
