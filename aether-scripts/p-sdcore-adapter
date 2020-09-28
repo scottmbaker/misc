@@ -1,0 +1,5 @@
+#!/bin/bash
+REPO=${DOCKER_REPOSITORY:-smbaker/}
+TAG=${ONOS_SDCORE_ADAPTER_VERSION:-smbaker}
+#docker tag onosproject/sdcore-adapter:$TAG ${REPO}sdcore-adapter:$TAG
+docker push ${REPO}sdcore-adapter:$TAG

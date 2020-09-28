@@ -1,0 +1,10 @@
+#!/bin/bash
+REPO=${DOCKER_REPOSITORY:-smbaker/}
+TAG=${ONOS_SDCORE_ADAPTER_VERSION:-smbaker}
+docker push ${REPO}config-model-aether-1.0.0:$TAG
+docker push ${REPO}config-model-rbac-1.0.0:$TAG
+docker push ${REPO}config-model-e2node-1.0.0:$TAG
+docker push ${REPO}config-model-stratum-1.0.0:$TAG
+docker push ${REPO}config-model-devicesim-1.0.0:$TAG
+docker push ${REPO}config-model-testdevice-1.0.0:$TAG
+docker push ${REPO}config-model-testdevice-2.0.0:$TAG
