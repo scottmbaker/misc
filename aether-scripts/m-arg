@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+pushd /home/smbaker/projects/aether/aether-roc-gui
+export DOCKER_REPOSITORY=smbaker/
+export ONOS_SDCORE_ADAPTER_VERSION=smbaker
+export KIND_CLUSTER_NAME=voltha-minimal
+make images
+make kind
+popd

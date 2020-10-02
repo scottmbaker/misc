@@ -1,0 +1,2 @@
+#!/bin/bash
+kubectl -n micro-onos port-forward $(kubectl -n micro-onos get pods -l type=arg -o name) --address 0.0.0.0 8183:80
