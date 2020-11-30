@@ -12,7 +12,7 @@ fi
 STUFF=`cat $FN`
 
 IP=`kubectl -n micro-onos get service | grep -i aether-roc-api | awk '{print $3}'`
-URL="http://$IP:8181/aether/v1.0.0/spgw-1/$WHAT"
+URL="http://$IP:8181/aether/v1.0.0/connectivity-service-v1/$WHAT"
 curl --location --request POST $URL \
     --header 'Content-Type: application/json' \
     --data "$STUFF"

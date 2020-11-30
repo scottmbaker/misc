@@ -1,0 +1,26 @@
+#!/bin/bash
+WHAT=$1
+FN=$2
+if [ ! -f "$FN" ]; then
+    echo "$FN does not exist. Trying $AETHER_REST/$FN"
+    FN=$AETHER_REST/$FN
+fi
+if [ ! -f "$FN" ]; then
+    echo "$FN does not exist"
+    exit
+fi
+STUFF=`cat $FN`
+
+POD=$(kubectl -n micro-onos get pods -l type=api --field-selector status.phase=Running -o name)
+URL="http://127.0.0.1:8181/aether/v1.0.0/connectivity-service-v1/$WHAT"
+
+# copy curl into the container. We don't have root access in the container, so we can't install it.
+POD1=${POD:4}
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+kubectl -n micro-onos cp $DIR/static-curl $POD1:/tmp/
+
+echo "POD $POD"
+echo "URL $URL"
+kubectl exec -n micro-onos -it $POD -- /tmp/static-curl --location --request POST $URL \
+    --header 'Content-Type: application/json' \
+    --data "$STUFF"
