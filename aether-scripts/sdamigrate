@@ -1,0 +1,5 @@
+#!/bin/bash
+POD=$(kubectl -n micro-onos get pods -o name | grep -i sdcore-adapter)
+echo $POD
+echo Executing: /usr/local/bin/sdcore-migrate --from-target connectivity-service-v1 --from-version 1.0.0 --to-target connectivity-service-v2 --to-version 2.0.0 --aether-config onos-config:5150
+kubectl -n micro-onos exec -it $POD -- /usr/local/bin/sdcore-migrate -from-target connectivity-service-v1 -from-version 1.0.0 -to-target connectivity-service-v2 -to-version 2.0.0 -aether-config onos-config:5150 -client_key=/etc/sdcore-adapter/certs/tls.key -client_crt=/etc/sdcore-adapter/certs/tls.crt -ca_crt=/etc/sdcore-adapter/certs/tls.cacert -hostCheckDisabled

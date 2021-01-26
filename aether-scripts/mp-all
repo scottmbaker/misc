@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+m-onos-config
+m-all-models
+m-sdcore-adapter
+p-onos-config
+p-all-models
+p-sdcore-adapter
