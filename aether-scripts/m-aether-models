@@ -7,7 +7,9 @@ cd /home/smbaker/projects/aether/config-models/modelplugin/aether-1.0.0
 make models
 cd /home/smbaker/projects/aether/config-models/modelplugin/aether-2.0.0
 make models
+cd /home/smbaker/projects/aether/config-models/modelplugin/aether-2.1.0
+make models
 cd /home/smbaker/projects/aether/config-models/modelplugin/enterprise-1.0.0
 make models
 cd ../..
-make config-plugin-docker-aether-1.0.0 config-plugin-docker-aether-2.0.0 config-plugin-docker-enterprise-1.0.0 && make kind-only
+make config-plugin-docker-aether-1.0.0 config-plugin-docker-aether-2.0.0 config-plugin-docker-aether-2.1.0 config-plugin-docker-enterprise-1.0.0 && make kind-only

@@ -1,0 +1,4 @@
+#!/bin/bash
+REPO=${DOCKER_REPOSITORY:-smbaker/}
+TAG=${ONOS_CONFIG_VERSION:-smbaker}
+docker push ${REPO}onos-topo:$TAG

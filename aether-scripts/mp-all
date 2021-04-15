@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 m-onos-config
+m-onos-topo
 m-all-models
 m-sdcore-adapter
 p-onos-config

@@ -19,8 +19,18 @@ POD1=${POD:4}
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 kubectl -n micro-onos cp $DIR/static-curl $POD1:/tmp/
 
-echo "POD $POD"
-echo "URL $URL"
-kubectl exec -n micro-onos -it $POD -- /tmp/static-curl --location --request POST $URL \
+if [ "$AETHER_AUTH" != "" ]; then
+    echo "POD $POD"
+    echo "URL $URL"
+    echo "AUTH $AETHER_AUTH"
+    kubectl exec -n micro-onos -it $POD -- /tmp/static-curl --location --request POST $URL \
+            --header 'Content-Type: application/json' \
+	    --header "Authorization: Bearer $AETHER_AUTH" \
+  	    --data "$STUFF"
+else
+  echo "POD $POD"
+  echo "URL $URL"
+  kubectl exec -n micro-onos -it $POD -- /tmp/static-curl --location --request POST $URL \
     --header 'Content-Type: application/json' \
     --data "$STUFF"
+fi

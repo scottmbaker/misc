@@ -1,0 +1,3 @@
+#!/bin/bash
+POD=$(kubectl -n micro-onos get pods -l type=api --field-selector status.phase=Running -o name)
+kubectl -n micro-onos exec -it $@ $POD /bin/sh
