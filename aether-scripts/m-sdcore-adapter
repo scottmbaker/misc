@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
+source /usr/bin/c-aether
 pushd /home/smbaker/projects/aether/sdcore-adapter
-export DOCKER_REPOSITORY=smbaker/
 export ONOS_SDCORE_ADAPTER_VERSION=smbaker
 export KIND_CLUSTER_NAME=voltha-minimal
 make images

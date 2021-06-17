@@ -12,7 +12,7 @@ fi
 STUFF=`cat $FN`
 
 POD=$(kubectl -n micro-onos get pods -l type=api --field-selector status.phase=Running -o name)
-URL="http://127.0.0.1:8181/aether/v2.1.0/connectivity-service-v2/$WHAT"
+URL="http://127.0.0.1:8181/aether/v3.0.0/connectivity-service-v3/$WHAT"
 
 # copy curl into the container. We don't have root access in the container, so we can't install it.
 POD1=${POD:4}

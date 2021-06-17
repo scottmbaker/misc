@@ -6,5 +6,7 @@ pushd /home/smbaker/projects/aether/aether-roc-api
 #export KIND_CLUSTER_NAME=voltha-minimal
 make images
 #make kind-only
-docker tag onosproject/aether-roc-api:latest smbaker/aether-roc-api:smbaker
+
+source /usr/bin/c-aether
+docker tag onosproject/aether-roc-api:latest ${DOCKER_REPOSITORY}aether-roc-api:smbaker
 popd

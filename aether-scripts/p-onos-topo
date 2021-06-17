@@ -1,4 +1,4 @@
 #!/bin/bash
-REPO=${DOCKER_REPOSITORY:-smbaker/}
+source /usr/bin/c-aether
 TAG=${ONOS_CONFIG_VERSION:-smbaker}
-docker push ${REPO}onos-topo:$TAG
+docker push ${DOCKER_REPOSITORY}onos-topo:$TAG

@@ -1,4 +1,4 @@
 #!/bin/bash
-REPO=${DOCKER_REPOSITORY:-smbaker/}
+source /usr/bin/c-aether
 TAG=${AETHER_ROC_GUI_VERSION:-smbaker}
-docker push ${REPO}aether-roc-gui:$TAG
+docker push ${DOCKER_REPOSITORY}aether-roc-gui:$TAG

@@ -1,3 +1,3 @@
 #!/bin/bash
-POD=$(kubectl -n micro-onos get pods --field-selector status.phase=Running -o name | grep -i sdcore-adapter)
+POD=$(kubectl -n micro-onos get pods --field-selector status.phase=Running -o name | grep -i sdcore-adapter | grep -v v3)
 kubectl -n micro-onos exec -it $POD bash
