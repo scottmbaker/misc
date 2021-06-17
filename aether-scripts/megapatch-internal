@@ -1,0 +1,15 @@
+#!/bin/bash
+
+POD=$(kubectl -n micro-onos get pods -l type=api --field-selector status.phase=Running -o name)
+
+# copy curl into the container. We don't have root access in the container, so we can't install it.
+POD1=${POD:4}
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+kubectl -n micro-onos cp $DIR/static-curl $POD1:/tmp/
+kubectl -n micro-onos cp /home/smbaker/projects/aether/aether-roc-api/examples/MEGA_Patch.curl $POD1:/tmp/
+
+kubectl exec -n micro-onos -it $POD -- sed -i 's^http://aether-roc-umbrella-sdcore-test-dummy/v1/config/5g^http://198.0.0.60:9089/config^g' /tmp/MEGA_Patch.curl
+kubectl exec -n micro-onos -it $POD -- sed -i 's^curl^/tmp/static-curl^g' /tmp/MEGA_Patch.curl
+kubectl exec -n micro-onos -it $POD -- sed -i 's^localhost^127.0.0.1^g' /tmp/MEGA_Patch.curl
+kubectl exec -n micro-onos -it $POD -- chmod a+x /tmp/MEGA_Patch.curl
+kubectl exec -n micro-onos -it $POD -- sh /tmp/MEGA_Patch.curl
