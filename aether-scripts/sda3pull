@@ -1,0 +1,4 @@
+#!/bin/bash
+POD=$(kubectl -n micro-onos get pods -o name | grep -i sdcore-adapter | grep v3)
+echo $POD
+kubectl -n micro-onos exec -it $POD -- curl -X POST "http://localhost:8080/pull?target=connectivity-service-v3&aetherConfigAddr=onos-config:5150"
